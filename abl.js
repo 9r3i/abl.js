@@ -1,6 +1,6 @@
 /* abl.js */
 ;function abl(ns,host){
-this.version='2.0.0';
+this.version='2.0.1';
 this.app={
   version:1,
   name:typeof ns==='string'?ns:'unknown',
@@ -162,8 +162,10 @@ this.loader=function(e){
   let i='abl-loader',
   m=null,
   l=document.getElementById(i);
-  if(l&&e===false){
-    l.parentNode.remove();
+  if(e===false){
+    if(l){
+      l.parentNode.remove();
+    }
     return;
   }
   let q=Math.floor(e.loaded/e.total*0x64),
